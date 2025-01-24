@@ -1,4 +1,5 @@
 #include <limits>
+#include <math.h>
 
 #include "my_lib.hpp"
 
@@ -24,12 +25,15 @@ std::vector<double> solve(double a, double b, double c)
 
     auto d = b * b - 4 * a * c;
 
-    if(d < 0)
+    if(d < -std::numeric_limits<double>::epsilon())
     {
         return std::vector<double>();
     }
 
+    if(d < std::numeric_limits<double>::epsilon() && d > -std::numeric_limits<double>::epsilon())
+    {
+        return {-b/(2*a), -b/(2*a)};
+    }
 
-
-    return { std::numeric_limits<double>::infinity() };
+    return { (-b+sqrt(d)) / (2 * a), (-b-sqrt(d)) / (2 * a)};
 }
