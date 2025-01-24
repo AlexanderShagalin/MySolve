@@ -1,6 +1,7 @@
-
 #include <gtest/gtest.h>
 #include <gmock/gmock-matchers.h>
+
+#include <limits>
 
 #include "my_lib.hpp"
 
@@ -33,4 +34,9 @@ TEST(my_nan, 6)
 TEST(my_nan, 7)
 {
     ASSERT_THAT(my_nan(100545513216800.676), Eq(false));
+}
+
+TEST(solve, test_1)
+{
+    ASSERT_THAT(solve(4, 0, 1), Eq(std::vector<double>()));
 }
