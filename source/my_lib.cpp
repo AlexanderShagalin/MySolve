@@ -1,5 +1,6 @@
 #include <limits>
 #include <math.h>
+#include <stdexcept>
 
 #include "my_lib.hpp"
 
@@ -24,7 +25,10 @@ std::vector<double> solve(double a, double b, double c)
         return std::vector<double>();
 
     if(a < std::numeric_limits<double>::epsilon() && a > -std::numeric_limits<double>::epsilon())
+    {
+        throw std::invalid_argument( "a == 0" );
         return std::vector<double>();
+    }
 
     auto d = b * b - 4 * a * c;
 
