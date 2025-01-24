@@ -22,7 +22,14 @@ std::vector<double> solve(double a, double b, double c)
     if(my_nan(c))
         return std::vector<double>();
 
+    auto d = b * b - 4 * a * c;
+
+    if(d < 0)
+    {
+        return std::vector<double>();
+    }
 
 
-    return std::vector<double>(2);
+
+    return { std::numeric_limits<double>::infinity() };
 }
