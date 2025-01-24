@@ -1,4 +1,3 @@
-#include <vector>
 #include <limits>
 
 #include "my_lib.hpp"
@@ -14,10 +13,16 @@ bool my_nan(double value)
     return false;
 }
 
-double solve(double a, double b, double c)
+std::vector<double> solve(double a, double b, double c)
 {
+    if(my_nan(a))
+        return std::vector<double>();
+    if(my_nan(b))
+        return std::vector<double>();
+    if(my_nan(c))
+        return std::vector<double>();
 
 
 
-    return 0;
+    return std::vector<double>(2);
 }
