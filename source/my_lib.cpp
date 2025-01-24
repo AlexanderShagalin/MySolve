@@ -23,6 +23,9 @@ std::vector<double> solve(double a, double b, double c)
     if(my_nan(c))
         return std::vector<double>();
 
+    if(a < std::numeric_limits<double>::epsilon() && a > -std::numeric_limits<double>::epsilon())
+        return std::vector<double>();
+
     auto d = b * b - 4 * a * c;
 
     if(d < -std::numeric_limits<double>::epsilon())
